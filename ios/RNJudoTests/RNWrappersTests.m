@@ -542,6 +542,22 @@
 /*
 * GIVEN: a configuration NSDictionary is passed to the wrapper with a valid [configuration] property
 *
+* WHEN:  the [isPayButtonAmountVisible] property of the [uiConfiguration] dictionary is not an integer
+*
+* THEN:  an 'invalid payment button amount display setting' exception should be thrown
+*/
+- (void)test_OnInvalidUIConfigurationPayButtonAmountVisibility_ThrowError {
+    NSDictionary *props = [self propertiesWithConfigurationValue:@"hello"
+                                                          forKey:@"isPayButtonAmountVisible"
+                                                orDictionaryName:@"uiConfiguration"];
+
+    // TODO: Add this once native side is implemented
+    // XCTAssertThrows([RNWrappers configurationFromProperties:props]);
+}
+
+/*
+* GIVEN: a configuration NSDictionary is passed to the wrapper with a valid [configuration] property
+*
 * WHEN:  the [theme] property of the [uiConfiguration] dictionary is missing
 *
 * THEN:  set the default JPTheme object
